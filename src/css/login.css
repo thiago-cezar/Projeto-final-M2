@@ -1,312 +1,309 @@
-body{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100vw;
-    height: 100vh;
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
 }
-.boxLogin{
-    display: flex;
-    flex-direction: column;
-    width: 70%;
-    height: 70%;
-    border-radius: 2%;
-    box-shadow: 0px 0px 10px 2px rgb(183, 181, 181);
+.boxLogin {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  height: 70%;
+  border-radius: 2%;
+  box-shadow: 0px 0px 10px 2px rgb(183, 181, 181);
 }
-.sectionTitulo{
-    background-color: var(--brand-2);
-    width: 100%;
-    border-radius: 2% 2% 0 0;
-    padding: 1rem;
+.sectionTitulo {
+  background-color: var(--brand-2);
+  width: 100%;
+  border-radius: 2% 2% 0 0;
+  padding: 1rem;
 }
 
-.loginTitulo{
-    font: var(--Title-2);
-    color: white;
+.loginTitulo {
+  font: var(--Title-2);
+  color: white;
 }
-.loginDescricao{
+.loginDescricao {
+  font: var(--Text-2-500);
+  color: var(--brand-3);
+}
+.sectionImg {
+  display: none;
+  width: 100%;
+  height: 100%;
+  margin-top: 5%;
+  margin-left: 5%;
+}
+.imgLogin {
+  width: 90%;
+  height: 90%;
+}
+.sectionForm {
+  padding: 1rem;
+  height: 60%;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: space-around;
+  align-items: center;
+}
+.tituloForm {
+  font: var(--Title-3);
+}
+form {
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
+  justify-content: space-around;
+  width: 80%;
+  height: 90%;
+}
+.inputEmail {
+  height: 10%;
+  border: none;
+  background-color: var(--grey-4);
+  border-radius: 3%;
+  padding: 1rem;
+}
+.inputEmail:focus {
+  background-color: var(--grey-3);
+}
+.inputEmail:invalid {
+  border: 3px solid red;
+}
+.inputSenha {
+  height: 10%;
+  border: none;
+  background-color: var(--grey-4);
+  border-radius: 3%;
+  padding: 1rem;
+}
+.inputSenha:focus {
+  background-color: var(--grey-3);
+}
+
+.buttonForm {
+  height: 20%;
+  border: none;
+  background-color: var(--brand-1);
+  color: var(--brand-3);
+  border-radius: 3%;
+  font-size: medium;
+}
+.buttonForm:hover {
+  border: 3px solid var(--brand-1);
+  color: var(--brand-1);
+  background-color: white;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: large;
+  transition: 1s;
+}
+label {
+  width: 100%;
+  font: var(--Text-3-400);
+  margin-top: 1rem;
+  font-weight: bold;
+}
+.modal {
+  display: none;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background-color: rgba(33, 37, 41, 0.65);
+  align-items: center;
+  justify-content: center;
+}
+.modal > .conteiner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: inherit;
+}
+.modal-inner {
+  background-color: rgb(240, 56, 57);
+  border: 2px solid white;
+  width: 32rem;
+  max-width: 100%;
+  min-height: 10rem;
+  border-radius: 10%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.modal-inner > p {
+  font: var(--Text-2-500);
+  color: var(--grey-1);
+  padding: 0 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+#botao-modal {
+  font: var(--Title-4);
+  display: flex;
+  text-align: left;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  align-self: center;
+}
+button:hover {
+  color: var(--grey-2);
+  transition: 0.5s;
+}
+
+@media (min-width: 600px) {
+  .boxLogin {
+    display: flex;
+    flex-direction: row;
+    width: 70%;
+    height: 60%;
+    border-radius: 2%;
+    box-shadow: 0px 0px 10px 2px rgb(183, 181, 181);
+  }
+  .sectionTitulo {
+    background-color: var(--brand-2);
+    width: 50%;
+    border-radius: 2% 0 0 2%;
+    padding: 5rem;
+  }
+  .loginTitulo {
+    font: var(--Title-3);
+    color: white;
+    margin-bottom: 2rem;
+  }
+  .loginDescricao {
     font: var(--Text-2-500);
     color: var(--brand-3);
-}
-.sectionImg{
-    display: none;
-    width: 100%;
+  }
+  .sectionImg {
+    display: flex;
+    width: 19rem;
+    height: 19rem;
+  }
+
+  .sectionForm {
+    padding: 5rem;
+    width: 50%;
     height: 100%;
-    margin-top: 5%;
-    margin-left: 5%;
-}
-.imgLogin{
-    width: 90%;
-    height: 90%;
-}
-.sectionForm{
-    padding: 1rem;
-    height: 60%;
     display: flex;
     flex-direction: column;
     align-content: center;
     justify-content: space-around;
     align-items: center;
-}
-.tituloForm{
-        font: var(--Title-3);
-}
-form{
+  }
+  form {
     display: flex;
     flex-direction: column;
     align-content: space-between;
     justify-content: space-around;
-    width: 80%;
+    width: 100%;
     height: 90%;
-}
-.inputEmail{
-    height: 10%;
+  }
+  .inputEmail {
+    height: 5%;
     border: none;
-    background-color: var(--grey-4) ;
+    background-color: var(--grey-4);
     border-radius: 3%;
     padding: 1rem;
-}
-.inputEmail:focus{
-    background-color: var(--grey-3);
-}
-.inputEmail:invalid{
-    border: 3px solid red;
-}
-.inputSenha{
-    height: 10%;
+  }
+  .inputSenha {
+    height: 5%;
     border: none;
-    background-color: var(--grey-4) ;
+    background-color: var(--grey-4);
     border-radius: 3%;
     padding: 1rem;
-}
-.inputSenha:focus{
-    background-color: var(--grey-3);
-}
-
-.buttonForm{
+  }
+  .buttonForm {
     height: 20%;
     border: none;
-    background-color:var(--brand-1);
+    background-color: var(--brand-1);
     color: var(--brand-3);
     border-radius: 3%;
-    font-size: medium;
-}
-.buttonForm:hover{
-    border: 3px solid var(--brand-1) ;
-    color: var(--brand-1);
-    background-color: white;
-    cursor: pointer;
-    font-weight: bold;
-    font-size: large;
-    transition: 1s;
-}
-label{
-    width: 100%;
-    font: var(--Text-3-400);
-    margin-top: 1rem;
-    font-weight: bold;
-}
-.modal {
-    display: none;
-    width: 100vw;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1;
-    background-color: rgba(33, 37, 41,0.65);
-    align-items: center;
-    justify-content: center;
-}
-.modal>.conteiner {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: inherit;
-}
-.modal-inner {
-    background-color: rgb(240, 56, 57);
-    border: 2px solid white;
-    width: 32rem;
-    max-width: 100%;
-    min-height: 10rem;
-    border-radius: 10%;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-}
-.modal-inner>p {
-    font: var(--Text-2-500);
-    color: var(--grey-1);
-    padding: 0 1rem;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-}
-#botao-modal {
-    font: var(--Title-4);
-    display: flex;
-    text-align: left;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    align-self: center;
-}
-button:hover{
-    color: var(--grey-2);
-    transition: 0.5s;
-}
+    font-size: small;
+  }
+  .tituloForm {
+    font: var(--Title-3);
+  }
 
-@media(min-width:600px) {
-    .boxLogin{
-        display: flex;
-        flex-direction: row;
-        width: 70%;
-        height: 60%;
-        border-radius: 2%;
-        box-shadow: 0px 0px 10px 2px rgb(183, 181, 181);
+  @media (min-width: 1000px) {
+    .boxLogin {
+      display: flex;
+      flex-direction: row;
+      width: 70%;
+      height: 60%;
+      border-radius: 2%;
+      box-shadow: 0px 0px 10px 2px rgb(183, 181, 181);
     }
-    .sectionTitulo{
-        background-color: var(--brand-2);
-        width: 50%;
-        border-radius: 2% 0 0 2%;
-        padding: 5rem;
+    .sectionTitulo {
+      background-color: var(--brand-2);
+      width: 50%;
+      border-radius: 2% 0 0 2%;
+      padding: 10rem;
     }
-    .loginTitulo{
-        font: var(--Title-3);
-        color: white;
-        margin-bottom: 2rem;
+    .loginTitulo {
+      font: var(--Title-1);
+      color: white;
+      margin-bottom: 2rem;
     }
-    .loginDescricao{
-        font: var(--Text-2-500);
-        color: var(--brand-3);
+    .loginDescricao {
+      font: var(--Text-1-500);
+      color: var(--brand-3);
     }
-    .sectionImg{
-        display: flex;
-        width: 19rem;
-        height: 19rem;
+    .sectionImg {
+      display: flex;
+      width: 90%;
+      height: 90%;
     }
-    
-    .sectionForm{
-        padding: 5rem;
-        width: 50%;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        align-content: center;
-        justify-content: space-around;
-        align-items: center;
-    }
-    form{
-        display: flex;
-        flex-direction: column;
-        align-content: space-between;
-        justify-content: space-around;
-        width: 100%;
-        height: 90%;
-    }
-    .inputEmail{
-        height: 5%;
-        border: none;
-        background-color: var(--grey-4) ;
-        border-radius: 3%;
-        padding: 1rem;
-    }
-    .inputSenha{
-
-            height: 5%;
-            border: none;
-            background-color: var(--grey-4) ;
-            border-radius: 3%;
-            padding: 1rem;
-    }
-    .buttonForm{
-        height: 20%;
-        border: none;
-        background-color:var(--brand-1);
-        color: var(--brand-3);
-        border-radius: 3%;
-        font-size: small;
-    }
-    .tituloForm{
-        font: var(--Title-3);
+    .sectionForm {
+      padding: 5rem;
+      width: 50%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-content: center;
+      justify-content: space-around;
+      align-items: center;
     }
 
-@media(min-width:1000px) {
-    .boxLogin{
-        display: flex;
-        flex-direction: row;
-        width: 70%;
-        height: 60%;
-        border-radius: 2%;
-        box-shadow: 0px 0px 10px 2px rgb(183, 181, 181);
+    form {
+      display: flex;
+      flex-direction: column;
+      align-content: space-between;
+      justify-content: space-around;
+      width: 100%;
+      height: 70%;
     }
-    .sectionTitulo{
-        background-color: var(--brand-2);
-        width: 50%;
-        border-radius: 2% 0 0 2%;
-        padding: 10rem;
+    .inputEmail {
+      height: 7%;
+      border: none;
+      background-color: var(--grey-4);
+      border-radius: 3%;
+      padding: 1rem;
     }
-    .loginTitulo{
-        font: var(--Title-1);
-        color: white;
-        margin-bottom: 2rem;
+    .inputSenha {
+      height: 7%;
+      border: none;
+      background-color: var(--grey-4);
+      border-radius: 3%;
+      padding: 1rem;
     }
-    .loginDescricao{
-        font: var(--Text-1-500);
-        color: var(--brand-3);
+    .buttonForm {
+      height: 20%;
+      border: none;
+      background-color: var(--brand-1);
+      color: var(--brand-3);
+      border-radius: 3%;
+      font-size: large;
     }
-    .sectionImg{
-        display: flex;
-        width: 90%;
-        height: 90%;
+    .tituloForm {
+      font: var(--Title-3);
     }
-    .sectionForm{
-        padding: 5rem;
-        width: 50%;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        align-content: center;
-        justify-content: space-around;
-        align-items: center;
-    }
-    
-    form{
-        display: flex;
-        flex-direction: column;
-        align-content: space-between;
-        justify-content: space-around;
-        width: 100%;
-        height: 70%;
-    }
-    .inputEmail{
-        height: 7%;
-        border: none;
-        background-color: var(--grey-4) ;
-        border-radius: 3%;
-        padding: 1rem;
-    }
-    .inputSenha{
-        height: 7%;
-        border: none;
-        background-color: var(--grey-4) ;
-        border-radius: 3%;
-        padding: 1rem;
-    }
-    .buttonForm{
-        height: 20%;
-        border: none;
-        background-color:var(--brand-1);
-        color: var(--brand-3);
-        border-radius: 3%;
-        font-size: large;
-    }
-    .tituloForm{
-        font: var(--Title-3);
-    }
-
-}
-
+  }
 }

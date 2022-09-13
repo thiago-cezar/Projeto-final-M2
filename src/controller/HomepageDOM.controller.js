@@ -1,98 +1,87 @@
-import Habit from "../models/Habit.models.js"
-import RequisicaoLogin from "./LoginRequisicao.controller.js"
+import Habit from "../models/Habit.models.js";
+import RequisicaoLogin from "./LoginRequisicao.controller.js";
 
+export default class CriandoDOMHomepage {
+  static modalEditarPerfil() {
+    const sair1 = document.getElementById("modal");
 
+    const divContainer = document.createElement("div");
+    divContainer.classList.add("modalContainer");
 
-export default class CriandoDOMHomepage{
+    const divInner = document.createElement("div");
+    divInner.classList.add("modalInner");
 
-    static modalEditarPerfil(){
-        
-        const sair1 = document.getElementById("modal")
+    const sectionCabecalho = document.createElement("section");
+    sectionCabecalho.classList.add("modalEditarCabecalho");
 
-        const divContainer= document.createElement("div")
-        divContainer.classList.add("modalContainer")
+    const h1TituloModal = document.createElement("h1");
+    h1TituloModal.setAttribute("id", "editarPerfilTitulo");
+    h1TituloModal.insertAdjacentHTML("afterbegin", "Editar Perfil");
 
-        const divInner = document.createElement("div")
-        divInner.classList.add("modalInner")
+    const buttonModal = document.createElement("button");
+    buttonModal.setAttribute("id", "modalEditarButton");
+    buttonModal.insertAdjacentHTML("afterbegin", "X");
 
-        const sectionCabecalho = document.createElement("section")
-        sectionCabecalho.classList.add("modalEditarCabecalho")
+    buttonModal.addEventListener("click", () => {
+      window.location.reload();
+    });
 
-        const h1TituloModal = document.createElement("h1")
-        h1TituloModal.setAttribute("id", "editarPerfilTitulo")
-        h1TituloModal.insertAdjacentHTML("afterbegin", "Editar Perfil")
+    const form = document.createElement("form");
+    form.classList.add("formularioEditarPerfil");
 
-        const buttonModal = document.createElement("button")
-        buttonModal.setAttribute("id", "modalEditarButton")
-        buttonModal.insertAdjacentHTML("afterbegin", "X")
+    const labelNome = document.createElement("label");
+    labelNome.insertAdjacentHTML("afterbegin", "Nome");
 
-        buttonModal.addEventListener("click", ()=> { window.location.reload()})
-        
+    const labelImg = document.createElement("label");
+    labelImg.insertAdjacentHTML("afterbegin", "URL da imagem");
 
-        const form = document.createElement("form")
-        form.classList.add("formularioEditarPerfil")
+    const inputNome = document.createElement("input");
+    inputNome.type = "text";
+    inputNome.placeholder = "Insira aqui o nome";
+    inputNome.classList.add("inputEditarPerfil");
+    inputNome.label = "Nome";
 
-        const labelNome = document.createElement("label")
-        labelNome.insertAdjacentHTML("afterbegin", "Nome")
+    const inputImg = document.createElement("input");
+    inputImg.type = "text";
+    inputImg.placeholder = "url...";
+    inputImg.classList.add("inputEditarPerfil");
 
-        const labelImg =  document.createElement("label")
-        labelImg.insertAdjacentHTML("afterbegin", "URL da imagem")
+    const button = document.createElement("button");
+    button.classList.add("buttonEditarPerfil");
+    button.insertAdjacentHTML("afterbegin", "Salvar alterações");
 
-        const inputNome = document.createElement("input")
-        inputNome.type="text"
-        inputNome.placeholder="Insira aqui o nome"
-        inputNome.classList.add("inputEditarPerfil")
-        inputNome.label="Nome"
+    sectionCabecalho.append(h1TituloModal, buttonModal);
+    form.append(labelNome, inputNome, labelImg, inputImg, button);
+    divInner.append(sectionCabecalho, form);
+    divContainer.append(divInner);
 
-        const inputImg = document.createElement("input")
-        inputImg.type="text"
-        inputImg.placeholder= "url..."
-        inputImg.classList.add("inputEditarPerfil")
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      if (inputImg.value != "" && inputNome.value != "") {
+        window.localStorage.setItem("@kenzieHabit-username", inputNome.value);
 
-        const button =document.createElement("button")
-        button.classList.add("buttonEditarPerfil")
-        button.insertAdjacentHTML("afterbegin", "Salvar alterações")
-        
-        sectionCabecalho.append(h1TituloModal, buttonModal)
-        form.append(labelNome,inputNome,labelImg, inputImg, button)
-        divInner.append(sectionCabecalho, form)
-        divContainer.append(divInner)
-        
+        Habit.editarPerfil({
+          usr_image: inputImg.value,
 
-        form.addEventListener("submit", (event)=>{
-            event.preventDefault()
-            if(inputImg.value != "" && inputNome.value != ""){
-                window.localStorage.setItem("@kenzieHabit-username",inputNome.value)
+          usr_name: inputNome.value,
+        });
+      } else if (inputImg.value != "") {
+        Habit.editarPerfil({
+          usr_image: inputImg.value,
+        });
+      } else if (inputNome.value != "") {
+        window.localStorage.setItem("@kenzieHabit-username", inputNome.value);
+        Habit.editarPerfil({
+          usr_name: inputNome.value,
+        });
+      }
+    });
 
-                Habit.editarPerfil({
-                    usr_image: inputImg.value,
+    buttonModal.addEventListener("click", () => {
+      sair1.innerHTML = "";
+      sair1.style.display = "none";
+    });
 
-                    usr_name: inputNome.value
-                })
-            }else if(inputImg.value != ""){
-
-                Habit.editarPerfil({
-                    usr_image: inputImg.value,
-                })
-            }else if(inputNome.value != ""){
-                window.localStorage.setItem("@kenzieHabit-username",inputNome.value)
-                Habit.editarPerfil({
-                    usr_name: inputNome.value,
-                })
-            }
-
-            
-           })
-        
-       
-        buttonModal.addEventListener("click",()=>{
-            sair1.innerHTML = ""
-            sair1.style.display= "none"
-        })
-        
-        return divContainer
-
-    }
-
+    return divContainer;
+  }
 }
-

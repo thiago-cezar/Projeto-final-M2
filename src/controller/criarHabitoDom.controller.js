@@ -1,84 +1,87 @@
 export default class Modal {
+  static modal = document.getElementById("criar_modal");
 
-    static modal = document.getElementById('criar_modal')
+  static criarModalHabito() {
+    const criarModal = document.createElement("div");
+    criarModal.classList.add(".modal_habito");
 
-    static criarModalHabito() {
+    const modalHeader = document.createElement("div");
+    modalHeader.classList.add("modal_header");
 
-        const criarModal = document.createElement('div')
-        criarModal.classList.add('.modal_habito')
+    const tituloCriarHabito = document.createElement("h3");
+    tituloCriarHabito.innerText = "Criar Hábito";
 
-        const modalHeader = document.createElement('div')
-        modalHeader.classList.add('modal_header')
+    const botaoFechar = document.createElement("button");
+    botaoFechar.setAttribute("id", "fechar_criarModal");
+    botaoFechar.innerText = "X";
 
-        const tituloCriarHabito = document.createElement('h3')
-        tituloCriarHabito.innerText = "Criar Hábito"
+    const criarForm = document.createElement("form");
+    criarForm.classList.add("form_modal");
 
-        const botaoFechar = document.createElement('button')
-        botaoFechar.setAttribute('id', 'fechar_criarModal')
-        botaoFechar.innerText = "X"
+    const tituloHabito = document.createElement("p");
+    tituloHabito.innerText = "Título";
 
-        const criarForm = document.createElement('form')
-        criarForm.classList.add('form_modal')
+    const inputTituloHabito = document.createElement("input");
+    inputTituloHabito.setAttribute("id", "titulo_criarModal");
+    inputTituloHabito.classList.add("input_modal");
+    inputTituloHabito.placeholder = "Digite um título";
+    inputTituloDescricao.required
 
-        const tituloHabito = document.createElement('p')
-        tituloHabito.innerText = "Título"
+    const tituloDescricao = document.createElement("p");
+    tituloDescricao.innerText = "Descrição";
 
-        const inputTituloHabito = document.createElement('input')
-        inputTituloHabito.setAttribute('id', 'titulo_criarModal')
-        inputTituloHabito.classList.add('input_modal')
-        inputTituloHabito.placeholder = "Digite um título"
+    const inputTituloDescricao = document.createElement("input");
+    inputTituloDescricao.setAttribute("id", "descricao_criarModal");
+    inputTituloDescricao.classList.add("input_modal");
+    inputTituloDescricao.placeholder = "Digitar uma descrição";
 
-        const tituloDescricao = document.createElement('p')
-        tituloDescricao.innerText = "Descrição"
+    const tituloCategoria = document.createElement("p");
+    tituloCategoria.innerText = "Categoria";
 
-        const inputTituloDescricao = document.createElement('input')
-        inputTituloDescricao.setAttribute('id', 'descricao_criarModal')
-        inputTituloDescricao.classList.add('input_modal')
-        inputTituloDescricao.placeholder = "Digitar uma descrição"
+    const criarSelect = document.createElement("select");
+    criarSelect.setAttribute("id", "selecionar_cate");
+    criarSelect.classList.add("selecionar_habito");
+    criarSelect.placeholder = "Selecione uma categoria";
 
-        const tituloCategoria = document.createElement('p')
-        tituloCategoria.innerText = "Categoria"
+    const selecionarCategoria1 = document.createElement("option");
+    selecionarCategoria1.innerText = "💜 Saúde";
 
-        const criarSelect = document.createElement('select')
-        criarSelect.setAttribute('id', 'selecionar_cate')
-        criarSelect.classList.add('selecionar_habito')
-        criarSelect.placeholder = "Selecione uma categoria"
+    const selecionarCategoria2 = document.createElement("option");
+    selecionarCategoria2.innerText = "✏️ Estudos";
 
-        const selecionarCategoria1 = document.createElement('option')
-        selecionarCategoria1.innerText = "💜 Saúde"
-        
+    const selecionarCategoria3 = document.createElement("option");
+    selecionarCategoria3.innerText = "🏠 Casa";
 
-        const selecionarCategoria2 = document.createElement('option')
-        selecionarCategoria2.innerText = "✏️ Estudos"
-        
+    const selecionarCategoria4 = document.createElement("option");
+    selecionarCategoria4.innerText = "💼 Trabalho";
 
-        const selecionarCategoria3 = document.createElement('option')
-        selecionarCategoria3.innerText = "🏠 Casa"
-        
+    const selecionarCategoria5 = document.createElement("option");
+    selecionarCategoria5.innerText = "⛵ Lazer";
 
-        const selecionarCategoria4 = document.createElement('option')
-        selecionarCategoria4.innerText = "💼 Trabalho"
-        
+    const create__submitButton = document.createElement("button");
+    create__submitButton.setAttribute("id", "create__submitButton");
+    create__submitButton.type = "submit";
+    create__submitButton.innerText = "Inserir";
 
-        const selecionarCategoria5 = document.createElement('option')
-        selecionarCategoria5.innerText = "⛵ Lazer"
-        
+    criarModal.appendChild(modalHeader);
 
-        const create__submitButton = document.createElement('button')
-        create__submitButton.setAttribute('id', 'create__submitButton')
-        create__submitButton.type = "submit"
-        create__submitButton.innerText = "Inserir"
+    modalHeader.append(botaoFechar, tituloCriarHabito);
 
-        criarModal.appendChild(modalHeader)
-
-        modalHeader.append(botaoFechar, tituloCriarHabito)
-
-        criarForm.append(tituloHabito, inputTituloHabito, 
-                         tituloDescricao, inputTituloDescricao, 
-                         tituloCategoria, criarSelect)
-        criarSelect.append(selecionarCategoria1, selecionarCategoria2, selecionarCategoria3, 
-                           selecionarCategoria4, selecionarCategoria5)
-        this.modal.appendChild(criarModal)
-
-    } 
+    criarForm.append(
+      tituloHabito,
+      inputTituloHabito,
+      tituloDescricao,
+      inputTituloDescricao,
+      tituloCategoria,
+      criarSelect
+    );
+    criarSelect.append(
+      selecionarCategoria1,
+      selecionarCategoria2,
+      selecionarCategoria3,
+      selecionarCategoria4,
+      selecionarCategoria5
+    );
+    this.modal.appendChild(criarModal);
+  }
 }

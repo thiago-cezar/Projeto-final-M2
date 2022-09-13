@@ -15,8 +15,6 @@ export default class CriarTabela {
          section.appendChild(table)
     }
 
-    
-
     static cabecalho(){
 
         let thead = document.createElement("thead");
@@ -95,5 +93,11 @@ export default class CriarTabela {
         }
         tabela.appendChild(tbody)
     }
-    
+    static semTarefas(idSection) {
+        let section = document.getElementById(idSection)
+        let h2 = document.createElement("h2")
+        h2.classList.add("semTarefas")
+        h2.innerText = "Você não possui nenhuma tarefa"
+        section.appendChild(h2)
+    }
 }
